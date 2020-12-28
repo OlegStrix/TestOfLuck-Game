@@ -12,9 +12,19 @@ namespace Casino_Game
 {
     public partial class Games : Form
     {
+        public MainForm mForm;
         public Games()
         {
             InitializeComponent();
+        }
+
+        private void Games_Load(object sender, EventArgs e)
+        {
+            Money.Text = mForm.TextBox_PasteMoney.Text;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

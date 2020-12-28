@@ -12,6 +12,8 @@ namespace Casino_Game
 {
     public partial class MainForm : Form
     {
+        public TextBox TextBox_PasteMoney;
+        Games GamesForm;
         public MainForm()
         {
             InitializeComponent();
@@ -19,7 +21,8 @@ namespace Casino_Game
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            GamesForm = new Games();
+            TextBox_PasteMoney = PasteMoney;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,7 +32,14 @@ namespace Casino_Game
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Games.
+            GamesForm.mForm = this;
+            GamesForm.Show();
+            this.Visible = false;
+        }
+
+        private void PasteMoney_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

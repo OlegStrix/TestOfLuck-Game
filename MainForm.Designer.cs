@@ -30,8 +30,8 @@ namespace Casino_Game
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.PasteMoney = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -44,13 +44,6 @@ namespace Casino_Game
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(76, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -61,15 +54,23 @@ namespace Casino_Game
             this.label1.Text = "Введите сумму:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Form1
+            // PasteMoney
+            // 
+            this.PasteMoney.Location = new System.Drawing.Point(76, 70);
+            this.PasteMoney.Name = "PasteMoney";
+            this.PasteMoney.Size = new System.Drawing.Size(100, 20);
+            this.PasteMoney.TabIndex = 3;
+            this.PasteMoney.TextChanged += new System.EventHandler(this.PasteMoney_TextChanged);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 229);
+            this.Controls.Add(this.PasteMoney);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -80,8 +81,8 @@ namespace Casino_Game
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox PasteMoney;
     }
 }
 
