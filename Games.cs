@@ -24,7 +24,7 @@ namespace Casino_Game
         {
             TextBox_GamesMoney = Money;
             Money.Text = mForm.TextBox_PasteMoney.Text;
-            MoreLessForm = new MoreLess();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -34,6 +34,7 @@ namespace Casino_Game
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MoreLessForm = new MoreLess();
             MoreLessForm.gForm = this;
             MoreLessForm.Show();
             this.Visible = false;
@@ -42,6 +43,13 @@ namespace Casino_Game
         private void Money_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void GamesFormClosed(object sender, FormClosedEventArgs e)
+        {
+            mForm.TextBox_PasteMoney.Text = Money.Text;
+            mForm.Show();
+            this.Visible = false;
         }
     }
 }

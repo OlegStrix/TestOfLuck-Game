@@ -146,7 +146,9 @@ namespace Casino_Game
             this.Controls.Add(this.MoreLessMoney);
             this.Controls.Add(this.label3);
             this.Name = "MoreLess";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MoreLess";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MoreLessClosed);
             this.Load += new System.EventHandler(this.MoreLess_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

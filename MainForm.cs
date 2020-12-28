@@ -21,7 +21,7 @@ namespace Casino_Game
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            GamesForm = new Games();
+           
             TextBox_PasteMoney = PasteMoney;
         }
 
@@ -34,6 +34,7 @@ namespace Casino_Game
         {
             if (Convert.ToInt32(PasteMoney.Text) > 0)
             {
+                GamesForm = new Games();
                 GamesForm.mForm = this;
                 GamesForm.Show();
                 this.Visible = false;

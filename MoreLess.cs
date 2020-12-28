@@ -65,32 +65,31 @@ namespace Casino_Game
                 int variable = 0;
                 double money;
                 //NI - значение поля ввода угадываемого числа
-                double NI = Convert.ToInt32(PasteNumberIn.Text);
+                int NI = Convert.ToInt32(PasteNumberIn.Text);
                 //M - значение поля ввода ставки
-                double M = Convert.ToInt32(PasteMoney.Text);
+                double M = Convert.ToDouble(PasteMoney.Text);
                 //NO -значение поля ввода макс угадываемого числа
                 int NO = Convert.ToInt32(PasteNumberOut.Text);
+                double NO_double = Convert.ToDouble(NO);
+                double NI_double = Convert.ToDouble(NI);
                 if (NI > 0 && M > 0 && NO > 0 && M <= Convert.ToDouble(MoreLessMoney.Text) && NI<=NO)
                 {
-                    coef = (double)NO / (double)(NO - NI) - 1.03;
+                    coef = NO_double / (NO_double-NI_double)-0.07;
+                    MessageBox.Show(Convert.ToString(coef));
                     money = M * coef ;
                     variable = rnd.Next(0, NO);
                     if(variable>=NI && variable <= NO)
                     {           
                         MessageBox.Show($"Вы выиграли : {money}");
                         double final = Convert.ToDouble(MoreLessMoney.Text) + money;
-                        //mform.TextBox_PasteMoney.Text = Convert.ToString(final);
                         MoreLessMoney.Text = Convert.ToString(final);
-                        //MoreLessMoney.Text = Convert.ToString(final);
                     }
                     else
                     {
-                        MessageBox.Show($"Вы проиграли : {money}");
-                        double final = Convert.ToDouble(MoreLessMoney.Text) - money;
+                        MessageBox.Show($"Вы проиграли : {M}");
+                        double final = Convert.ToDouble(MoreLessMoney.Text) - M;
                         this.MoreLessMoney.Text = Convert.ToString(final);
-                        // MoreLessMoney.Text = Convert.ToString(final);
-                    }
-                    
+                    }           
                 }
                 else
                 {
@@ -106,6 +105,13 @@ namespace Casino_Game
         private void buttonLess_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MoreLessClosed(object sender, FormClosedEventArgs e)
+        {
+            gForm.TextBox_GamesMoney.Text = MoreLessMoney.Text;
+            gForm.Show();
+            this.Visible = false;
         }
     }
 }

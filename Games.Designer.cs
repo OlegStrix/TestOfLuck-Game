@@ -93,7 +93,9 @@ namespace Casino_Game
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Games";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Games";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GamesFormClosed);
             this.Load += new System.EventHandler(this.Games_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
