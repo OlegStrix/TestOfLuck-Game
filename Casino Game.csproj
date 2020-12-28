@@ -58,6 +58,12 @@
     <Compile Include="Games.Designer.cs">
       <DependentUpon>Games.cs</DependentUpon>
     </Compile>
+    <Compile Include="MoreLess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoreLess.Designer.cs">
+      <DependentUpon>MoreLess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Games.resx">
       <DependentUpon>Games.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoreLess.resx">
+      <DependentUpon>MoreLess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

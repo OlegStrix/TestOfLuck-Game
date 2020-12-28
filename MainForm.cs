@@ -32,9 +32,17 @@ namespace Casino_Game
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GamesForm.mForm = this;
-            GamesForm.Show();
-            this.Visible = false;
+            if (Convert.ToInt32(PasteMoney.Text) > 0)
+            {
+                GamesForm.mForm = this;
+                GamesForm.Show();
+                this.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Сумма должна быть положительна");
+            }
+              
         }
 
         private void PasteMoney_TextChanged(object sender, EventArgs e)

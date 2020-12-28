@@ -62,6 +62,7 @@ namespace Casino_Game
             this.button1.TabIndex = 5;
             this.button1.Text = "Play";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -77,9 +78,9 @@ namespace Casino_Game
             this.Money.Enabled = false;
             this.Money.Location = new System.Drawing.Point(28, 265);
             this.Money.Name = "Money";
-            this.Money.Size = new System.Drawing.Size(117, 20);
-            this.Money.TabIndex = 7;
-            this.Money.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Money.Size = new System.Drawing.Size(100, 20);
+            this.Money.TabIndex = 8;
+            this.Money.TextChanged += new System.EventHandler(this.Money_TextChanged);
             // 
             // Games
             // 
