@@ -15,7 +15,7 @@ namespace Casino_Game
         public TextBox TextBox_MLMoney;
         public Games gForm;
         public MainForm mform;
-
+        
         public MoreLess()
         {
             InitializeComponent();
@@ -57,36 +57,44 @@ namespace Casino_Game
 
         private void buttonMore_Click(object sender, EventArgs e)
         {
-
+            Random rnd = new Random();
+            
             if (PasteNumberIn.Text.Length != 0 && PasteMoney.Text.Length != 0 && PasteNumberOut.Text.Length != 0)
             {
+                double coef = 0;
+                int variable = 0;
+                double money;
                 //NI - значение поля ввода угадываемого числа
-                int NI = Convert.ToInt32(PasteNumberIn.Text);
+                double NI = Convert.ToInt32(PasteNumberIn.Text);
                 //M - значение поля ввода ставки
-                int M = Convert.ToInt32(PasteMoney.Text);
+                double M = Convert.ToInt32(PasteMoney.Text);
                 //NO -значение поля ввода макс угадываемого числа
                 int NO = Convert.ToInt32(PasteNumberOut.Text);
-                if (NI > 0)
+                if (NI > 0 && M > 0 && NO > 0 && M <= Convert.ToDouble(MoreLessMoney.Text) && NI<=NO)
                 {
-                    if (M > 0)
-                    {
-                        if (NO > 0)
-                        {
-                            MessageBox.Show("Успешно");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Число должно быть больше нуля");
-                        }
+                    coef = (double)NO / (double)(NO - NI) - 1.03;
+                    money = M * coef ;
+                    variable = rnd.Next(0, NO);
+                    if(variable>=NI && variable <= NO)
+                    {           
+                        MessageBox.Show($"Вы выиграли : {money}");
+                        double final = Convert.ToDouble(MoreLessMoney.Text) + money;
+                        //mform.TextBox_PasteMoney.Text = Convert.ToString(final);
+                        MoreLessMoney.Text = Convert.ToString(final);
+                        //MoreLessMoney.Text = Convert.ToString(final);
                     }
                     else
                     {
-                        MessageBox.Show("Ставка должна быть больше нуля");
+                        MessageBox.Show($"Вы проиграли : {money}");
+                        double final = Convert.ToDouble(MoreLessMoney.Text) - money;
+                        this.MoreLessMoney.Text = Convert.ToString(final);
+                        // MoreLessMoney.Text = Convert.ToString(final);
                     }
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Число должно быть больше нуля");
+                    MessageBox.Show("Проверьте корректность введенных полей");
                 }
             }
             else
